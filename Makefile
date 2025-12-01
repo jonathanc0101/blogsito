@@ -53,3 +53,7 @@ clean:
 # ---------------------------------------
 convert:
 	pandoc $(file).docx -t markdown -o $(file).md
+
+# Uso: make nuevo-texto titulo=Titulo-del-texto
+nuevo-texto:
+	hugo new texts/$(titulo).md
