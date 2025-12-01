@@ -1,1 +1,12 @@
+# Hugo output
 public/
+resources/_gen/
+
+# OS files
+.DS_Store
+
+# Node (if using themes with npm)
+node_modules/
+
+# Hugo Cache
+.cache/
