@@ -2,6 +2,7 @@
 date = '2025-12-01T15:41:49-03:00'
 draft = false
 title = 'Brainrot II'
+tags = ["cuento", "horror suave", "brainrot"]
 +++
 
 La calle está vacía. Son las seis de la tarde. El sol está más bajo de lo normal.

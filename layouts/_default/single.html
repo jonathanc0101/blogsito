@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <main class="pb7" role="main">
+    <article class="mw7 center ph3 pv4">
+
+      <header>
+        <h1 class="f2">{{ .Title }}</h1>
+        <p class="f6 gray">{{ .Date.Format "2006-01-02" }}</p>
+      </header>
+
+      <section class="mt4 nested-copy-line-height">
+        {{ .Content }}
+      </section>
+
+      {{/* BLOQUE DE TAGS AL FINAL */}}
+      {{ partial "post-tags.html" . }}
+
+    </article>
+  </main>
+{{ end }}

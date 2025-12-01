@@ -2,6 +2,8 @@
 date = '2025-12-01T15:44:21-03:00'
 draft = false
 title = 'A Favor De Despertar a La Gente Que Ronca'
+tags = ["rant", "crítica social", "flasheada"]
+
 +++
 
 

@@ -2,6 +2,7 @@
 date = '2025-12-01T15:41:46-03:00'
 draft = false
 title = 'Brainrot I'
+tags = ["cuento", "horror suave", "brainrot"]
 +++
 
 Un hombre entra en un kiosco 24 horas buscando una gaseosa fría.
