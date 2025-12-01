@@ -1,6 +1,7 @@
 # Hugo output
 public/
 resources/_gen/
+public/*
 
 # OS files
 .DS_Store
