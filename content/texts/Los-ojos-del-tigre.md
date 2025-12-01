@@ -1,5 +1,5 @@
 +++
-date = '2025-12-01T16:22:56-03:00'
+date = '2025-06-02T16:22:56-03:00'
 draft = false
 title = 'Los Ojos Del Tigre'
 tags = ["cuento", "tailandia", "animales"]

@@ -1,5 +1,5 @@
 +++
-date = '2025-12-01T15:41:49-03:00'
+date = '2025-11-27T15:41:49-03:00'
 draft = false
 title = 'Brainrot II'
 tags = ["cuento", "horror suave", "brainrot"]
