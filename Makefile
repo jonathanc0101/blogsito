@@ -6,31 +6,31 @@ BUILD_DIR  = _build         # build de prueba (ignorado en git)
 PUBLIC_DIR = public         # build real (worktree a gh-pages)
 
 # ---------------------------------------
-# Targets de servidor
+# Servidores
 # ---------------------------------------
 
-# Server mostrando drafts
+# Server mostrando drafts, sirviendo desde _build
 serve-draft:
-	$(HUGO) server -D
+	$(HUGO) server -D -d $(BUILD_DIR)
 
-# Server real (sin drafts)
+# Server real (sin drafts), sirviendo desde _build
 serve:
-	$(HUGO) server
+	$(HUGO) server -d $(BUILD_DIR)
 
 # ---------------------------------------
-# Targets de build
+# Builds
 # ---------------------------------------
 
 # Build de prueba: NO toca gh-pages
 build:
 	$(HUGO) --minify -d $(BUILD_DIR)
 
-# Build real: genera en "public" (rama gh-pages)
+# Build real: genera en "public" (worktree a gh-pages)
 build-real:
 	$(HUGO) --minify
 
 # ---------------------------------------
-# Deploy manual a gh-pages (worktree)
+# Deploy manual a gh-pages
 # ---------------------------------------
 
 deploy: build-real
