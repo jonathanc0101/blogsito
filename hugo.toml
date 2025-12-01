@@ -10,3 +10,8 @@ publishDir = "public"
     name = "Sobre mí"
     url = "/about/"
     weight = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
