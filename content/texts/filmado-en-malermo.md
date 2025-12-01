@@ -1,6 +1,6 @@
 +++
 date = '2025-11-17T09:28:27-03:00'
-draft = true
+draft = false
 title = 'Filmado en Malermo'
 +++
 

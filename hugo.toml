@@ -1,7 +1,8 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://fudolfo.xyz/"
 languageCode = "es-ar"
-title = "Refugio"
+title = "Fudolfo"
 theme = "ananke"
+publishDir = "public"
 
 [menu]
 
