@@ -45,3 +45,11 @@ deploy: build-real
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+
+# ---------------------------------------
+# Uso: make convert file=brainrot 
+# Funcionamiento: convierte brainrot.docx en markdown
+# ---------------------------------------
+convert:
+	pandoc $(file).docx -t markdown -o $(file).md
