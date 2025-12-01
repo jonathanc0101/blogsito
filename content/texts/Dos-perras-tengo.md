@@ -2,7 +2,7 @@
 date = '2025-11-09T17:08:18-03:00'
 draft = false
 title = 'Dos Perras Tengo'
-tags = ["perras", "animales", "Choco", "Quita"]
+tags = ["perras", "animales", "Choco", "Quita", "caca"]
 +++
 
 Y es genial. Una es grande y la otra es más chica.  
