@@ -1,0 +1,84 @@
+{{ define "main" }}
+  <main class="pa3 pa4-ns">
+    <section class="mw7 center">
+      <!-- Hero / presentación -->
+      <header class="mb4 mb5-ns">
+        <p class="f6 ttu tracked dark-gray mb2">
+          {{ .Site.Title }}
+        </p>
+        <h1 class="f2 f1-ns lh-title mv0">
+          Un espacio para ver sin filtros
+        </h1>
+        <p class="f5 f4-ns lh-copy mid-gray mt3">
+          Experiencias, ideas, bitácoras del capitan, fragmentos sueltos.
+          Nada demasiado ordenado, pero lo suficiente como para volver
+          cuando haga falta.
+        </p>
+      </header>
+
+      <!-- Últimos posts -->
+      <section class="mb4 mb5-ns">
+        <h2 class="f4 f3-ns lh-title mb3">
+          Últimos posts
+        </h2>
+
+        {{ $posts := first 5 (where .Site.RegularPages "Section" "posts") }}
+        {{ if $posts }}
+          <div class="flex-ns flex-wrap nl3-ns nr3-ns">
+            {{ range $posts }}
+              <article class="w-100 w-50-ns ph0 ph3-ns mb4">
+                <a href="{{ .RelPermalink }}" class="link dim">
+                  <h3 class="f4 lh-title mb1">
+                    {{ .Title }}
+                  </h3>
+                </a>
+                <p class="f6 mid-gray mb1">
+                  {{ .Date.Format "02 Jan 2006" }}
+                </p>
+                <p class="f5 lh-copy mid-gray">
+                  {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
+                </p>
+              </article>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="f5 mid-gray">
+            Todavía no hay posts. Pronto habrá algo por acá.
+          </p>
+        {{ end }}
+      </section>
+
+      <!-- Textos -->
+      <section class="mb4 mb5-ns">
+        <h2 class="f4 f3-ns lh-title mb3">
+          Textos
+        </h2>
+
+        {{ $texts := first 5 (where .Site.RegularPages "Section" "texts") }}
+        {{ if $texts }}
+          <div class="flex-ns flex-wrap nl3-ns nr3-ns">
+            {{ range $texts }}
+              <article class="w-100 w-50-ns ph0 ph3-ns mb4">
+                <a href="{{ .RelPermalink }}" class="link dim">
+                  <h3 class="f4 lh-title mb1">
+                    {{ .Title }}
+                  </h3>
+                </a>
+                <p class="f6 mid-gray mb1">
+                  {{ .Date.Format "02 Jan 2006" }}
+                </p>
+                <p class="f5 lh-copy mid-gray">
+                  {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
+                </p>
+              </article>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="f5 mid-gray">
+            Acá van a vivir los fragmentos, crónicas y rarezas.
+          </p>
+        {{ end }}
+      </section>
+    </section>
+  </main>
+{{ end }}

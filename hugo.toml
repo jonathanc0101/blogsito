@@ -1,0 +1,11 @@
+baseURL = "http://localhost:1313/"
+languageCode = "es-ar"
+title = "Refugio"
+theme = "ananke"
+
+[menu]
+
+  [[menu.main]]
+    name = "Sobre mí"
+    url = "/about/"
+    weight = 10
