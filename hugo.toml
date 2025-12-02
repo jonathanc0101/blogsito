@@ -1,5 +1,7 @@
 baseURL = "https://fudolfo.xyz/"
-languageCode = "es-ar"
+
+defaultContentLanguage = 'es'
+
 title = "Fudolfo"
 theme = "ananke"
 publishDir = "public"
@@ -7,7 +9,7 @@ publishDir = "public"
 [menu]
 
   [[menu.main]]
-    name = "Sobre mí"
+    name = "About"
     url = "/about/"
     weight = 10
 
@@ -18,4 +20,3 @@ publishDir = "public"
 
 [taxonomies]
   tag = "tags"
-  brainrot = "brainrots"
