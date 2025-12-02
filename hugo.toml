@@ -1,6 +1,7 @@
 baseURL = "https://fudolfo.xyz/"
 
 defaultContentLanguage = 'es'
+languageCode = "es-ar"
 
 title = "Fudolfo"
 theme = "ananke"
@@ -20,3 +21,11 @@ publishDir = "public"
 
 [taxonomies]
   tag = "tags"
+
+[params]
+  date_format = "02/01/2006"
+
+[languages]
+  [languages.es]
+    languageName = "Español"
+    weight = 1
