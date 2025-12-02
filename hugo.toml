@@ -20,15 +20,17 @@ publishDir = "public"
       hardWraps = true
       unsafe = true
 
-      
 
 [taxonomies]
   tag = "tags"
 
 [params]
+  favicon = "favicon.svg"
   date_format = "02/01/2006"
 
 [languages]
   [languages.es]
     languageName = "Español"
     weight = 1
+
+    
