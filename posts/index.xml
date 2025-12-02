@@ -1,1 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fudolfo</title><link>https://fudolfo.xyz/posts/</link><description>Recent content in Posts on Fudolfo</description><generator>Hugo</generator><language>es-ar</language><lastBuildDate>Mon, 17 Nov 2025 09:16:10 -0300</lastBuildDate><atom:link href="https://fudolfo.xyz/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hola Mundo</title><link>https://fudolfo.xyz/posts/hola-mundo/</link><pubDate>Mon, 17 Nov 2025 09:16:10 -0300</pubDate><guid>https://fudolfo.xyz/posts/hola-mundo/</guid><description>&lt;p&gt;Hello fucking world&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fudolfo</title><link>https://fudolfo.xyz/posts/</link><description>Recent content in Posts on Fudolfo</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 02 Dec 2025 06:25:30 -0300</lastBuildDate><atom:link href="https://fudolfo.xyz/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Alerts</title><link>https://fudolfo.xyz/posts/alerts/</link><pubDate>Tue, 02 Dec 2025 06:25:30 -0300</pubDate><guid>https://fudolfo.xyz/posts/alerts/</guid><description>&lt;style&gt;
+/* Asegura que el body use fondo completo sin padding del theme */
+body {
+ margin: 0;
+ padding: 0;
+}
+
+/* El contenedor del post se hace full-width */
+.post-bg {
+ position: relative;
+ width: 100%;
+ min-height: 100vh;
+
+ /* MOSAICO */
+ background-image: url('background.png');
+ background-repeat: repeat;
+ background-size: auto; /* evita que escale y rompe en mosaico */
+ background-position: top left;
+
+ /* Quita padding del theme */
+ padding: 0;
+ margin: 0;
+}
+
+/* Estilo de las imágenes */
+.post-image {
+ position: relative;
+ z-index: 2;
+ display: block;
+ margin: 2rem auto;
+ max-width: 90%;
+ border-radius: 8px;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+&lt;/style&gt;
+&lt;div class="post-bg"&gt;
+ &lt;img src="1 error register.png" class="post-image" alt=""&gt;
+ &lt;img src="2 estás durmiendo bien.png" class="post-image" alt=""&gt;
+ &lt;img src="3 tu pareja te cago.png" class="post-image" alt=""&gt;
+ &lt;img src="4 procesando lo que te dijo.png" class="post-image" alt=""&gt;
+ &lt;img src="5 flashaste.png" class="post-image" alt=""&gt;
+ &lt;img src="6 no decidir.png" class="post-image" alt=""&gt;
+&lt;/div&gt;</description></item></channel></rss>
