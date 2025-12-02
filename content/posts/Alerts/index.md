@@ -48,5 +48,8 @@ body {
   <img src="4 procesando lo que te dijo.png" class="post-image" alt="">
   <img src="5 flashaste.png" class="post-image" alt="">
   <img src="6 no decidir.png" class="post-image" alt="">
+  <img src="7 vas bien.png" class="post-image" alt="">
+  <img src="7 vas bien.png" class="post-image" alt="">
+  <img src="7 vas bien.png" class="post-image" alt="">
 
 </div>
