@@ -18,6 +18,9 @@ publishDir = "public"
   [markup.goldmark]
     [markup.goldmark.renderer]
       hardWraps = true
+      unsafe = true
+
+      
 
 [taxonomies]
   tag = "tags"
