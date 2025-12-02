@@ -32,7 +32,7 @@
                   </h3>
                 </a>
                 <p class="f6 mid-gray mb1">
-                  {{ .Date.Format "02 Jan 2006" }}
+                  {{ .Date.Format .Site.Params.date_format }}
                 </p>
                 <p class="f5 lh-copy mid-gray">
                   {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
@@ -64,7 +64,7 @@
                   </h3>
                 </a>
                 <p class="f6 mid-gray mb1">
-                  {{ .Date.Format "02 Jan 2006" }}
+                  {{ .Date.Format .Site.Params.date_format }}
                 </p>
                 <p class="f5 lh-copy mid-gray">
                   {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
