@@ -2,6 +2,7 @@
 date = '2025-12-02T06:25:30-03:00'
 draft = false
 title = 'Alerts'
+tags = ["alerts"]
 +++
 
 <style>
