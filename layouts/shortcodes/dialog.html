@@ -1,0 +1,35 @@
+{{/* layouts/shortcodes/dialog.html */}}
+{{ $icon           := .Get "icon" | default "💬" }}
+{{ $title          := .Get "title" | default "" }}
+{{ $primaryLabel   := .Get "primary_label" | default "" }}
+{{ $primaryHref    := .Get "primary_href" | default "#" }}
+{{ $secondaryLabel := .Get "secondary_label" }}
+{{ $secondaryHref  := .Get "secondary_href" | default "#" }}
+{{ $variant        := (.Get "variant" | default "material" | lower) }}
+
+<div class="dialog-box dialog-variant-{{ $variant }}">
+  <div class="dialog-header">
+    <span class="dialog-icon">{{ $icon }}</span>
+    {{ if $title }}
+      <h3 class="dialog-title">{{ $title }}</h3>
+    {{ end }}
+  </div>
+
+  <div class="dialog-body">
+    {{ .Inner | markdownify }}
+  </div>
+
+  <div class="dialog-footer">
+    {{ if $primaryLabel }}
+      <a href="{{ $primaryHref }}" class="dialog-button dialog-button--primary">
+        {{ $primaryLabel }}
+      </a>
+    {{ end }}
+
+    {{ if $secondaryLabel }}
+      <a href="{{ $secondaryHref }}" class="dialog-button dialog-button--secondary">
+        {{ $secondaryLabel }}
+      </a>
+    {{ end }}
+  </div>
+</div>

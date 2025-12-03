@@ -61,6 +61,8 @@
   {{ if or $isAlertsPost $isAlertsTagPage }}
     {{ partial "alerts-css.html" . }}
   {{ end }}
+    
+  {{ partial "dynamic-dialogs-css.html" .}}
 
   {{ block "page_css" . }}{{ end }}
 
