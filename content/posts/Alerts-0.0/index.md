@@ -64,9 +64,6 @@ body {
 <div class="alert alert--info">
 <div class="alert__icon">ℹ️</div>
 <p class="alert__text">Por algo se fue</p>
-<div class="alert__actions">
-    <button class="alert__btn alert__btn--primary">ok</button>
-</div>
 </div>
 
 <!-- RELOJ (Material Design) -->
@@ -108,11 +105,13 @@ body {
 
     let scrollEnabled = true;
 
-    // posición actual del foco
+    // -----------------------------------
+    // SPOTLIGHT (igual que antes)
+    // -----------------------------------
+
     let spotX = window.innerWidth / 2;
     let spotY = window.innerHeight * 0.4;
 
-    // posición objetivo del foco
     let targetX = spotX;
     let targetY = spotY;
 
@@ -121,29 +120,24 @@ body {
       root.style.setProperty("--spot-y", y + "px");
     }
 
-    // loop de animación con easing
     function animate() {
-      const ease = 0.25; // 0.1 = más lento, 0.4 = más rápido
+      const ease = 0.25;
 
       spotX += (targetX - spotX) * ease;
       spotY += (targetY - spotY) * ease;
 
       setSpot(spotX, spotY);
-
       requestAnimationFrame(animate);
     }
 
-    // arranca el loop
     requestAnimationFrame(animate);
 
-    // Desktop: seguir el mouse (pero usando targetX/targetY)
     window.addEventListener("mousemove", function (e) {
       scrollEnabled = false;
       targetX = e.clientX;
       targetY = e.clientY;
     });
 
-    // Mobile: seguir el dedo
     window.addEventListener(
       "touchmove",
       function (e) {
@@ -157,18 +151,44 @@ body {
       { passive: true }
     );
 
-    // Cuando termina el toque, dejamos que el scroll pueda recenter
     window.addEventListener("touchend", function () {
       scrollEnabled = true;
     });
 
-    // Mobile scroll: si no hay puntero fino y scrollEnabled, recentrar
     window.addEventListener("scroll", function () {
       if (!window.matchMedia("(pointer: fine)").matches && scrollEnabled) {
         targetX = window.innerWidth / 2;
         targetY = window.innerHeight * 0.4;
       }
     });
+
+    // -----------------------------------
+    // ORDENAMIENTO VERTICAL ALEATORIO
+    // -----------------------------------
+
+    function randomVerticalSpacing() {
+      const alerts = Array.from(
+        document.querySelectorAll(".page-spotlight .alert")
+      );
+
+      if (alerts.length === 0) return;
+
+      let currentY = 60; // punto inicial arriba
+
+      alerts.forEach((alert, index) => {
+        // separaciones aleatorias
+        const spacing = 200 + Math.abs(Math.random()) * 500; 
+
+        // Posicionar usando transform
+        alert.style.position = "absolute";
+        alert.style.left = "50%";
+        alert.style.transform = `translateX(-50%) translateY(${currentY}px)`;
+
+        currentY += spacing; // siguiente alert más abajo
+      });
+    }
+
+    window.addEventListener("load", randomVerticalSpacing);
+
   })();
 </script>
-
