@@ -15,11 +15,6 @@ tags = ["alerts"]
   </div>
 </div>
 
-<div class="alert alert--sweet">
-  <div class="alert__icon">i</div>
-  <p class="alert__text">Todos nos mentimos</p>
-</div>
-
 
 <!-- INFO (Bootstrap-ish) -->
 <div class="alert alert--info">
@@ -32,7 +27,6 @@ tags = ["alerts"]
 
 <!-- RELOJ (Material Design) -->
 <div class="alert alert--material">
-  <div class="alert__icon">🕒</div>
   <p class="alert__text">Es hora de ver otro amanecer</p>
   <div class="alert__actions">
     <button class="alert__btn alert__btn--md">ok</button>
@@ -41,8 +35,8 @@ tags = ["alerts"]
 
 <!-- ERROR (Windows 98 / glitch) -->
 <div class="alert alert--error">
-  <div class="alert__icon">!</div>
-  <p class="alert__text">ERROR: Respiración automática desactivada</p>
+  <br>
+  <p class="alert__text">Respiración automática desactivada</p>
   <div class="alert__actions">
     <button class="alert__btn alert__btn--error">Reactivar</button>
   </div>
@@ -56,3 +50,10 @@ tags = ["alerts"]
     <button class="alert__btn">ok</button>
   </div>
 </div>
+
+
+<div class="alert alert--sweet">
+  <div class="alert__icon">i</div>
+  <p class="alert__text">Todos nos mentimos</p>
+</div>
+
