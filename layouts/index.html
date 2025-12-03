@@ -37,7 +37,10 @@
                 <p class="f5 lh-copy mid-gray">
                   {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
                 </p>
+
+                {{ partial "small_tags.html" . }}
               </article>
+
             {{ end }}
           </div>
         {{ else }}
@@ -69,6 +72,8 @@
                 <p class="f5 lh-copy mid-gray">
                   {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
                 </p>
+
+                {{ partial "small_tags.html" . }}
               </article>
             {{ end }}
           </div>
@@ -102,6 +107,8 @@
                 <p class="f5 lh-copy mid-gray">
                   {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
                 </p>
+
+                {{ partial "small_tags.html" . }}
               </article>
             {{ end }}
           </div>

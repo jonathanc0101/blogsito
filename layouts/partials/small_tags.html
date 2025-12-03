@@ -1,0 +1,21 @@
+{{- $items := slice -}}
+
+{{- with .Params.tags }}
+  {{- range . }}
+    {{- $items = $items | append (dict "name" . "tax" "tags") -}}
+  {{- end }}
+{{- end }}
+
+{{- if gt (len $items) 0 }}
+  <footer class="mt-auto mt2 pt2 bt b--light-gray f6">
+
+    {{- range $items }}
+      <a
+        class="link dim mr2 ba br2 ph2 pv1 dib"
+        href="{{ (printf "/%s/%s/" .tax (urlize .name)) | relURL }}"
+      >
+        {{ .name }}
+      </a>
+    {{- end }}
+  </footer>
+{{- end }}
