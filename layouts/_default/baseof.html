@@ -55,7 +55,10 @@
     {{ end }}
 	{{ block "head" . }}{{ partials.Include "head-additions.html" . }}{{ end }}
 
-  {{ if in .Params.tags "alerts" }}
+  {{ $isAlertsPost := in .Params.tags "alerts" }}
+  {{ $isAlertsTagPage := and (eq .Kind "term") (eq .Data.Term "alerts") }}
+
+  {{ if or $isAlertsPost $isAlertsTagPage }}
     {{ partial "alerts-css.html" . }}
   {{ end }}
 
