@@ -6,12 +6,6 @@
   {{- end }}
 {{- end }}
 
-{{- with .Params.brainrot }}
-  {{- range . }}
-    {{- $items = $items | append (dict "name" . "tax" "brainrot") -}}
-  {{- end }}
-{{- end }}
-
 {{- if gt (len $items) 0 }}
   <footer class="mt4 pt3 bt b--light-gray f6">
     <span class="mr2 gray">Tags:</span>
