@@ -4,7 +4,7 @@
 
       <header>
         <h1 class="f2">{{ .Title }}</h1>
-        <p class="f6 gray">{{ .Date.Format "2006-01-02" }}</p>
+        <p class="f6 gray">{{ .Date.Format .Site.Params.date_format }}</p>
       </header>
 
       <section class="mt4 nested-copy-line-height">
