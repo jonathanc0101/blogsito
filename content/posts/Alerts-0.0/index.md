@@ -5,7 +5,6 @@ title = 'Alerts 0.0'
 tags = ["alerts"]
 +++
 
-
 <style>
     /* Fondo general oscuro de la página de alerts */
 body {
@@ -19,6 +18,12 @@ body {
   color: #e5e7eb;
 }
 
+/* Definimos las variables a nivel root (o podrían ir en .page-spotlight) */
+:root {
+  --spot-x: 50vw;
+  --spot-y: 40vh;
+}
+
 /* Capa oscura con agujero circular alrededor del cursor / centro */
 .page-spotlight::before {
   content: "";
@@ -26,10 +31,6 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 2;
-
-  /* valores iniciales del círculo */
-  --spot-x: 50vw;
-  --spot-y: 40vh;
 
   background:
     radial-gradient(
@@ -58,7 +59,6 @@ body {
     <button class="alert__btn alert__btn--secondary">ni a palos</button>
 </div>
 </div>
-
 
 <!-- INFO (Bootstrap-ish) -->
 <div class="alert alert--info">
@@ -95,11 +95,80 @@ body {
 </div>
 </div>
 
-
 <div class="alert alert--sweet">
 <div class="alert__icon">i</div>
 <p class="alert__text">Todos nos mentimos</p>
 </div>
 
 </div>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+
+    let scrollEnabled = true;
+
+    // posición actual del foco
+    let spotX = window.innerWidth / 2;
+    let spotY = window.innerHeight * 0.4;
+
+    // posición objetivo del foco
+    let targetX = spotX;
+    let targetY = spotY;
+
+    function setSpot(x, y) {
+      root.style.setProperty("--spot-x", x + "px");
+      root.style.setProperty("--spot-y", y + "px");
+    }
+
+    // loop de animación con easing
+    function animate() {
+      const ease = 0.25; // 0.1 = más lento, 0.4 = más rápido
+
+      spotX += (targetX - spotX) * ease;
+      spotY += (targetY - spotY) * ease;
+
+      setSpot(spotX, spotY);
+
+      requestAnimationFrame(animate);
+    }
+
+    // arranca el loop
+    requestAnimationFrame(animate);
+
+    // Desktop: seguir el mouse (pero usando targetX/targetY)
+    window.addEventListener("mousemove", function (e) {
+      scrollEnabled = false;
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+
+    // Mobile: seguir el dedo
+    window.addEventListener(
+      "touchmove",
+      function (e) {
+        scrollEnabled = false;
+        if (e.touches && e.touches.length > 0) {
+          const t = e.touches[0];
+          targetX = t.clientX;
+          targetY = t.clientY;
+        }
+      },
+      { passive: true }
+    );
+
+    // Cuando termina el toque, dejamos que el scroll pueda recenter
+    window.addEventListener("touchend", function () {
+      scrollEnabled = true;
+    });
+
+    // Mobile scroll: si no hay puntero fino y scrollEnabled, recentrar
+    window.addEventListener("scroll", function () {
+      if (!window.matchMedia("(pointer: fine)").matches && scrollEnabled) {
+        targetX = window.innerWidth / 2;
+        targetY = window.innerHeight * 0.4;
+      }
+    });
+  })();
+</script>
 
