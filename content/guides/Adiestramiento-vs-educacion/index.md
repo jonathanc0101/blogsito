@@ -1,6 +1,6 @@
 +++
 date = '2025-12-03T15:25:33-03:00'
-draft = true
+draft = false
 title = 'Adiestramiento vs. Educación'
 tags = ['perros', 'adiestramiento', 'educación']
 +++
