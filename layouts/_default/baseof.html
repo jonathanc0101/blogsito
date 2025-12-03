@@ -78,5 +78,8 @@
     {{ block "footer" . }}{{ partials.IncludeCached "site-footer.html" . }}{{ end }}
 
     {{ block "page_js" . }}{{ end }}
+
+    {{ partial "dialog-scripts.html" . }}
+
   </body>
 </html>

@@ -18,18 +18,18 @@
   {{/* Compatibilidad: primary / secondary clásicos */}}
   {{- if $primaryLabel -}}
     {{- $buttons = $buttons | append (dict
-      "label" $primaryLabel
-      "href"  $primaryHref
-      "kind"  "primary"
+      "label"  $primaryLabel
+      "href"   $primaryHref
+      "kind"   "primary"
       "action" "link"
     ) -}}
   {{- end -}}
 
   {{- if $secondaryLabel -}}
     {{- $buttons = $buttons | append (dict
-      "label" $secondaryLabel
-      "href"  $secondaryHref
-      "kind"  "secondary"
+      "label"  $secondaryLabel
+      "href"   $secondaryHref
+      "kind"   "secondary"
       "action" "link"
     ) -}}
   {{- end -}}
@@ -54,8 +54,8 @@
         {{- if not $label -}}
           {{- /* sin label, no se muestra */ -}}
         {{- else -}}
-          {{- $action := (index $btn "action" | default "link" | lower) -}}
-          {{- $kind   := (index $btn "kind"   | default "secondary" | lower) -}}
+          {{- $action  := (index $btn "action" | default "link" | lower) -}}
+          {{- $kind    := (index $btn "kind"   | default "secondary" | lower) -}}
           {{- $btnIcon := index $btn "icon" -}}
 
           {{- if eq $action "link" -}}
@@ -68,8 +68,10 @@
           {{- else if eq $action "scroll" -}}
             {{- $target := (index $btn "target" | default "#") -}}
             <button
+              type="button"
               class="dialog-button dialog-button--{{ $kind }}"
-              onclick="document.querySelector('{{ $target }}')?.scrollIntoView({behavior:'smooth'})"
+              data-dialog-action="scroll"
+              data-dialog-target="{{ $target }}"
             >
               {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
               <span class="dialog-button-label">{{ $label }}</span>
@@ -78,8 +80,10 @@
           {{- else if eq $action "copy" -}}
             {{- $text := (index $btn "text" | default "" ) -}}
             <button
+              type="button"
               class="dialog-button dialog-button--{{ $kind }}"
-              onclick="navigator.clipboard.writeText('{{ $text }}')"
+              data-dialog-action="copy"
+              data-dialog-text="{{ $text }}"
             >
               {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
               <span class="dialog-button-label">{{ $label }}</span>
@@ -88,13 +92,14 @@
           {{- else if eq $action "custom" -}}
             {{- $handler := (index $btn "handler" | default "" ) -}}
             <button
+              type="button"
               class="dialog-button dialog-button--{{ $kind }}"
-              onclick="{{ $handler }}()"
+              data-dialog-action="custom"
+              data-dialog-handler="{{ $handler }}"
             >
               {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
               <span class="dialog-button-label">{{ $label }}</span>
             </button>
-
           {{- end -}}
         {{- end -}}
       {{- end -}}

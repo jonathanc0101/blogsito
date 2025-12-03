@@ -1,0 +1,60 @@
+<script>
+(function () {
+
+  window.alertar = function (btn) {
+    alert("Función global 'alertar' ejecutada correctamente");
+  };
+
+  function handleClick(event) {
+    var btn = event.currentTarget;
+    var action = btn.getAttribute('data-dialog-action');
+    if (!action) return;
+
+    if (action === 'scroll') {
+      var target = btn.getAttribute('data-dialog-target');
+      if (!target) return;
+      var el = document.querySelector(target);
+      if (el && el.scrollIntoView) {
+        try {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } catch (e) {
+          el.scrollIntoView();
+        }
+      }
+    } else if (action === 'copy') {
+      var text = btn.getAttribute('data-dialog-text') || '';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text)["catch"](function () {
+          console.warn('No se pudo copiar al portapapeles');
+        });
+      } else {
+        console.warn('Clipboard API no disponible');
+      }
+    } else if (action === 'custom') {
+      var handlerName = btn.getAttribute('data-dialog-handler');
+      if (!handlerName) return;
+      var fn = window[handlerName];
+      if (typeof fn === 'function') {
+        fn(btn);
+      } else {
+        console.warn('Handler custom no encontrado:', handlerName);
+      }
+    }
+  }
+
+  function initDialogButtons() {
+    var buttons = document.querySelectorAll('[data-dialog-action]');
+    if (buttons.length > 0){
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', handleClick);
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDialogButtons);
+  } else {
+    initDialogButtons();
+  }
+})();
+</script>
