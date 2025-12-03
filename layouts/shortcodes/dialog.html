@@ -1,67 +1,103 @@
 {{/* layouts/shortcodes/dialog.html */}}
-{{ $icon           := .Get "icon" | default "💬" }}
-{{ $title          := .Get "title" | default "" }}
-{{ $primaryLabel   := .Get "primary_label" | default "" }}
-{{ $primaryHref    := .Get "primary_href" | default "#" }}
-{{ $secondaryLabel := .Get "secondary_label" }}
-{{ $secondaryHref  := .Get "secondary_href" | default "#" }}
-{{ $variant        := (.Get "variant" | default "material" | lower) }}
 
-/* Intentamos leer botones dinámicos desde JSON */
-{{ $buttonsRaw := .Get "buttons" }}
-{{ $buttons := slice }}
+{{- $icon           := .Get "icon" | default "💬" -}}
+{{- $title          := .Get "title" | default "" -}}
+{{- $primaryLabel   := .Get "primary_label" | default "" -}}
+{{- $primaryHref    := .Get "primary_href" | default "#" -}}
+{{- $secondaryLabel := .Get "secondary_label" -}}
+{{- $secondaryHref  := .Get "secondary_href" | default "#" -}}
+{{- $variant        := (.Get "variant" | default "material" | lower) -}}
 
-{{ if $buttonsRaw }}
-  {{/* buttons='[{"label":"...","href":"...","kind":"primary"}]' */}}
-  {{ $buttons = $buttonsRaw | transform.Unmarshal }}
-{{ else }}
-  {{/* fallback al esquema viejo: primary + secondary */}}
-  {{ if $primaryLabel }}
-    {{ $buttons = $buttons | append (dict
+{{- $buttonsParam := .Get "buttons" -}}
+{{- $buttons := slice -}}
+
+{{- if $buttonsParam -}}
+  {{/* buttons='[{"label":"..","href":"..","action":"link"}]' */}}
+  {{- $buttons = $buttonsParam | transform.Unmarshal -}}
+{{- else -}}
+  {{/* Compatibilidad: primary / secondary clásicos */}}
+  {{- if $primaryLabel -}}
+    {{- $buttons = $buttons | append (dict
       "label" $primaryLabel
       "href"  $primaryHref
       "kind"  "primary"
-    ) }}
-  {{ end }}
+      "action" "link"
+    ) -}}
+  {{- end -}}
 
-  {{ if $secondaryLabel }}
-    {{ $buttons = $buttons | append (dict
+  {{- if $secondaryLabel -}}
+    {{- $buttons = $buttons | append (dict
       "label" $secondaryLabel
       "href"  $secondaryHref
       "kind"  "secondary"
-    ) }}
-  {{ end }}
-{{ end }}
+      "action" "link"
+    ) -}}
+  {{- end -}}
+{{- end -}}
 
 <div class="dialog-box dialog-variant-{{ $variant }}">
   <div class="dialog-header">
     <span class="dialog-icon">{{ $icon }}</span>
-    {{ if $title }}
+    {{- if $title -}}
       <h3 class="dialog-title">{{ $title }}</h3>
-    {{ end }}
+    {{- end -}}
   </div>
 
   <div class="dialog-body">
-    {{ .Inner | markdownify }}
+    {{- .Inner | markdownify -}}
   </div>
 
-  {{ if gt (len $buttons) 0 }}
+  {{- if gt (len $buttons) 0 -}}
     <div class="dialog-footer">
-      {{ range $i, $btn := $buttons }}
-        {{ $label := index $btn "label" }}
-        {{ if $label }}
-          {{ $href := (index $btn "href" | default "#") }}
-          {{ $kind := (index $btn "kind" | default "secondary" | lower) }}
-          {{ $btnIcon := index $btn "icon" }}
+      {{- range $i, $btn := $buttons -}}
+        {{- $label := index $btn "label" -}}
+        {{- if not $label -}}
+          {{- /* sin label, no se muestra */ -}}
+        {{- else -}}
+          {{- $action := (index $btn "action" | default "link" | lower) -}}
+          {{- $kind   := (index $btn "kind"   | default "secondary" | lower) -}}
+          {{- $btnIcon := index $btn "icon" -}}
 
-          <a href="{{ $href }}" class="dialog-button dialog-button--{{ $kind }}">
-            {{ with $btnIcon }}
-              <span class="dialog-button-icon">{{ . }}</span>
-            {{ end }}
-            <span class="dialog-button-label">{{ $label }}</span>
-          </a>
-        {{ end }}
-      {{ end }}
+          {{- if eq $action "link" -}}
+            {{- $href := (index $btn "href" | default "#") -}}
+            <a href="{{ $href }}" class="dialog-button dialog-button--{{ $kind }}">
+              {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
+              <span class="dialog-button-label">{{ $label }}</span>
+            </a>
+
+          {{- else if eq $action "scroll" -}}
+            {{- $target := (index $btn "target" | default "#") -}}
+            <button
+              class="dialog-button dialog-button--{{ $kind }}"
+              onclick="document.querySelector('{{ $target }}')?.scrollIntoView({behavior:'smooth'})"
+            >
+              {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
+              <span class="dialog-button-label">{{ $label }}</span>
+            </button>
+
+          {{- else if eq $action "copy" -}}
+            {{- $text := (index $btn "text" | default "" ) -}}
+            <button
+              class="dialog-button dialog-button--{{ $kind }}"
+              onclick="navigator.clipboard.writeText('{{ $text }}')"
+            >
+              {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
+              <span class="dialog-button-label">{{ $label }}</span>
+            </button>
+
+          {{- else if eq $action "custom" -}}
+            {{- $handler := (index $btn "handler" | default "" ) -}}
+            <button
+              class="dialog-button dialog-button--{{ $kind }}"
+              onclick="{{ $handler }}()"
+            >
+              {{- with $btnIcon }}<span class="dialog-button-icon">{{ . }}</span>{{ end -}}
+              <span class="dialog-button-label">{{ $label }}</span>
+            </button>
+
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
     </div>
-  {{ end }}
+  {{- end -}}
 </div>
