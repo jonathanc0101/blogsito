@@ -7,6 +7,32 @@
 {{ $secondaryHref  := .Get "secondary_href" | default "#" }}
 {{ $variant        := (.Get "variant" | default "material" | lower) }}
 
+/* Intentamos leer botones dinámicos desde JSON */
+{{ $buttonsRaw := .Get "buttons" }}
+{{ $buttons := slice }}
+
+{{ if $buttonsRaw }}
+  {{/* buttons='[{"label":"...","href":"...","kind":"primary"}]' */}}
+  {{ $buttons = $buttonsRaw | transform.Unmarshal }}
+{{ else }}
+  {{/* fallback al esquema viejo: primary + secondary */}}
+  {{ if $primaryLabel }}
+    {{ $buttons = $buttons | append (dict
+      "label" $primaryLabel
+      "href"  $primaryHref
+      "kind"  "primary"
+    ) }}
+  {{ end }}
+
+  {{ if $secondaryLabel }}
+    {{ $buttons = $buttons | append (dict
+      "label" $secondaryLabel
+      "href"  $secondaryHref
+      "kind"  "secondary"
+    ) }}
+  {{ end }}
+{{ end }}
+
 <div class="dialog-box dialog-variant-{{ $variant }}">
   <div class="dialog-header">
     <span class="dialog-icon">{{ $icon }}</span>
@@ -19,17 +45,23 @@
     {{ .Inner | markdownify }}
   </div>
 
-  <div class="dialog-footer">
-    {{ if $primaryLabel }}
-      <a href="{{ $primaryHref }}" class="dialog-button dialog-button--primary">
-        {{ $primaryLabel }}
-      </a>
-    {{ end }}
+  {{ if gt (len $buttons) 0 }}
+    <div class="dialog-footer">
+      {{ range $i, $btn := $buttons }}
+        {{ $label := index $btn "label" }}
+        {{ if $label }}
+          {{ $href := (index $btn "href" | default "#") }}
+          {{ $kind := (index $btn "kind" | default "secondary" | lower) }}
+          {{ $btnIcon := index $btn "icon" }}
 
-    {{ if $secondaryLabel }}
-      <a href="{{ $secondaryHref }}" class="dialog-button dialog-button--secondary">
-        {{ $secondaryLabel }}
-      </a>
-    {{ end }}
-  </div>
+          <a href="{{ $href }}" class="dialog-button dialog-button--{{ $kind }}">
+            {{ with $btnIcon }}
+              <span class="dialog-button-icon">{{ . }}</span>
+            {{ end }}
+            <span class="dialog-button-label">{{ $label }}</span>
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
 </div>
