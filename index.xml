@@ -1,85 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Inicio on Fudolfo</title><link>https://fudolfo.xyz/</link><description>Recent content in Inicio on Fudolfo</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 02 Dec 2025 21:56:17 -0300</lastBuildDate><atom:link href="https://fudolfo.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Alerts 0.0</title><link>https://fudolfo.xyz/posts/alerts-0.0/</link><pubDate>Tue, 02 Dec 2025 21:56:17 -0300</pubDate><guid>https://fudolfo.xyz/posts/alerts-0.0/</guid><description>&lt;style&gt;
- /* Fondo general oscuro de la página de alerts */
-body {
- background-color: #020617; /* slate-950 */
-}
-
-/* Contenedor principal con spotlight */
-.page-spotlight {
- position: relative;
- min-height: 100vh;
- color: #e5e7eb;
-}
-
-/* Definimos las variables a nivel root (o podrían ir en .page-spotlight) */
-:root {
- --spot-x: 50vw;
- --spot-y: 40vh;
-}
-
-/* Capa oscura con agujero circular alrededor del cursor / centro */
-.page-spotlight::before {
- content: "";
- position: fixed;
- inset: 0;
- pointer-events: none;
- z-index: 2;
-
- background:
- radial-gradient(
- circle at var(--spot-x) var(--spot-y),
- transparent 0,
- transparent 140px,
- rgba(0,0,0,0.96) 260px
- );
-}
-
-/* Aseguramos que el contenido quede por encima del overlay */
-.page-spotlight &gt; * {
- position: relative;
- z-index: 1;
-}
-
-&lt;/style&gt;
-&lt;div class="page-spotlight"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Inicio on Fudolfo</title><link>https://fudolfo.xyz/</link><description>Recent content in Inicio on Fudolfo</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 02 Dec 2025 21:56:17 -0300</lastBuildDate><atom:link href="https://fudolfo.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Alerts 0.0</title><link>https://fudolfo.xyz/posts/alerts-0.0/</link><pubDate>Tue, 02 Dec 2025 21:56:17 -0300</pubDate><guid>https://fudolfo.xyz/posts/alerts-0.0/</guid><description>&lt;div class="page-spotlight"&gt;
 &lt;div class="alert alert--sweet"&gt;
 &lt;div class="alert__icon"&gt;?&lt;/div&gt;
-&lt;p class="alert__text"&gt;¿Te mentís?&lt;/p&gt;</description></item><item><title>Alerts</title><link>https://fudolfo.xyz/posts/alerts/</link><pubDate>Tue, 02 Dec 2025 06:25:30 -0300</pubDate><guid>https://fudolfo.xyz/posts/alerts/</guid><description>&lt;style&gt;
-/* Asegura que el body use fondo completo sin padding del theme */
-body {
- margin: 0;
- padding: 0;
-}
-
-/* El contenedor del post se hace full-width */
-.post-bg {
- position: relative;
- width: 100%;
- min-height: 100vh;
-
- /* MOSAICO */
- background-image: url('background.png');
- background-repeat: repeat;
- background-size: auto; /* evita que escale y rompe en mosaico */
- background-position: top left;
-
- /* Quita padding del theme */
- padding: 0;
- margin: 0;
-}
-
-/* Estilo de las imágenes */
-.post-image {
- position: relative;
- z-index: 2;
- display: block;
- margin: 2rem auto;
- max-width: 90%;
- border-radius: 8px;
- box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-&lt;/style&gt;
-&lt;div class="post-bg"&gt;
+&lt;p class="alert__text"&gt;¿Te mentís?&lt;/p&gt;</description></item><item><title>Alerts</title><link>https://fudolfo.xyz/posts/alerts/</link><pubDate>Tue, 02 Dec 2025 06:25:30 -0300</pubDate><guid>https://fudolfo.xyz/posts/alerts/</guid><description>&lt;div class="post-bg"&gt;
  &lt;img src="1 error register.png" class="post-image" alt=""&gt;
  &lt;img src="2 estás durmiendo bien.png" class="post-image" alt=""&gt;
  &lt;img src="3 tu pareja te cago.png" class="post-image" alt=""&gt;
@@ -89,15 +11,9 @@ body {
  &lt;img src="7 vas bien.png" class="post-image" alt=""&gt;
  &lt;img src="7 vas bien.png" class="post-image" alt=""&gt;
  &lt;img src="7 vas bien.png" class="post-image" alt=""&gt;
-&lt;/div&gt;</description></item><item><title>A Favor De Despertar a La Gente Que Ronca</title><link>https://fudolfo.xyz/texts/a-favor-de-despertar-a-la-gente-que-ronca/</link><pubDate>Mon, 01 Dec 2025 15:44:21 -0300</pubDate><guid>https://fudolfo.xyz/texts/a-favor-de-despertar-a-la-gente-que-ronca/</guid><description>&lt;p&gt;Roncar es una afección que lastima a la población de maneras que quiza no notamos: Individuos de nuestra sociedad arrancan sus días ya cansados, habiendo dormido una noche completa, quizá ocho horas como nos dijeron toda la vida.&lt;br&gt;
-Pero una noche de sueño con vías respiratorias parcialmente obstruidas no es tan reparador como una con el acceso completo al aire, y por ende, al oxigeno.&lt;br&gt;
-El ronquido, señores y señoras, no es más que unas vías respiratorias parcialmente obstruidas qué aparte de hacer ruidos molestos en horarios indebidos, causan daño permanente al cuerpo. Al ser la etapa de sueño sumamente fundamental por razones qué todavía no entendemos completamente.&lt;br&gt;
-Muchos hombres roncan.&lt;br&gt;
-Muchos viven solos y no saben que roncan porque nadie nunca les dijo.&lt;br&gt;
-Muchos hombres recibirán la primera rosa en su funeral.&lt;br&gt;
-Muchos nunca sentirán la caricia de una madre.&lt;br&gt;
-Muchos nunca podrán amar bien.&lt;br&gt;
-Muchos si.&lt;/p&gt;</description></item><item><title>Brainrot II</title><link>https://fudolfo.xyz/texts/brainrot-ii/</link><pubDate>Thu, 27 Nov 2025 15:41:49 -0300</pubDate><guid>https://fudolfo.xyz/texts/brainrot-ii/</guid><description>&lt;p&gt;La calle está vacía. Son las seis de la tarde. El sol está más bajo de lo normal.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>A Favor De Despertar a La Gente Que Ronca</title><link>https://fudolfo.xyz/texts/a-favor-de-despertar-a-la-gente-que-ronca/</link><pubDate>Mon, 01 Dec 2025 15:44:21 -0300</pubDate><guid>https://fudolfo.xyz/texts/a-favor-de-despertar-a-la-gente-que-ronca/</guid><description>&lt;p&gt;Roncar es una afección que lastima a la población de maneras que quiza no notamos: Individuos de nuestra sociedad arrancan sus días ya cansados, habiendo dormido una noche completa, quizá ocho horas como nos dijeron toda la vida.&lt;/p&gt;
+&lt;p&gt;Pero una noche de sueño con vías respiratorias parcialmente obstruidas no es tan reparador como una con el acceso completo al aire, y por ende, al oxigeno.&lt;/p&gt;
+&lt;p&gt;El ronquido, señores y señoras, no es más que unas vías respiratorias parcialmente obstruidas qué aparte de hacer ruidos molestos en horarios indebidos, causan daño permanente al cuerpo. Al ser la etapa de sueño sumamente fundamental por razones qué todavía no entendemos completamente.&lt;/p&gt;</description></item><item><title>Brainrot II</title><link>https://fudolfo.xyz/texts/brainrot-ii/</link><pubDate>Thu, 27 Nov 2025 15:41:49 -0300</pubDate><guid>https://fudolfo.xyz/texts/brainrot-ii/</guid><description>&lt;p&gt;La calle está vacía. Son las seis de la tarde. El sol está más bajo de lo normal.&lt;/p&gt;
 &lt;p&gt;Bajan dos oficiales del patrullero. Policía de Chubut.&lt;/p&gt;
 &lt;p&gt;Van a comprar puchos.&lt;/p&gt;
 &lt;p&gt;Antes de entrar al kiosco observan una especie de desastre.&lt;/p&gt;

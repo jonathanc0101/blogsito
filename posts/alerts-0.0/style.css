@@ -1,0 +1,40 @@
+    /* Fondo general oscuro de la página de alerts */
+body {
+  background-color: #020617; /* slate-950 */
+}
+
+/* Contenedor principal con spotlight */
+.page-spotlight {
+  position: relative;
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+/* Definimos las variables a nivel root (o podrían ir en .page-spotlight) */
+:root {
+  --spot-x: 50vw;
+  --spot-y: 40vh;
+}
+
+/* Capa oscura con agujero circular alrededor del cursor / centro */
+.page-spotlight::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at var(--spot-x) var(--spot-y),
+      transparent 0,
+      transparent 140px,
+      rgba(0,0,0,0.96) 260px
+    );
+}
+
+/* Aseguramos que el contenido quede por encima del overlay */
+.page-spotlight > * {
+  position: relative;
+  z-index: 1;
+}
