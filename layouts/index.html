@@ -53,10 +53,10 @@
           Textos
         </h2>
 
-        {{ $texts := first 5 (where .Site.RegularPages "Section" "texts") }}
-        {{ if $texts }}
+        {{ $guides := first 5 (where .Site.RegularPages "Section" "texts") }}
+        {{ if $guides }}
           <div class="flex-ns flex-wrap nl3-ns nr3-ns">
-            {{ range $texts }}
+            {{ range $guides }}
               <article class="w-100 w-50-ns ph0 ph3-ns mb4">
                 <a href="{{ .RelPermalink }}" class="link dim">
                   <h3 class="f4 lh-title mb1">
@@ -78,6 +78,40 @@
           </p>
         {{ end }}
       </section>
+
+
+      <!-- Guias -->
+      <section class="mb4 mb5-ns">
+        <h2 class="f4 f3-ns lh-title mb3">
+          Guías
+        </h2>
+
+        {{ $guides := first 5 (where .Site.RegularPages "Section" "guides") }}
+        {{ if $guides }}
+          <div class="flex-ns flex-wrap nl3-ns nr3-ns">
+            {{ range $guides }}
+              <article class="w-100 w-50-ns ph0 ph3-ns mb4">
+                <a href="{{ .RelPermalink }}" class="link dim">
+                  <h3 class="f4 lh-title mb1">
+                    {{ .Title }}
+                  </h3>
+                </a>
+                <p class="f6 mid-gray mb1">
+                  {{ .Date.Format .Site.Params.date_format }}
+                </p>
+                <p class="f5 lh-copy mid-gray">
+                  {{ with .Summary }}{{ . | plainify | truncate 140 }}{{ end }}
+                </p>
+              </article>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="f5 mid-gray">
+            Acá van a vivir las instrucciones.
+          </p>
+        {{ end }}
+      </section>
+
     </section>
   </main>
 {{ end }}
