@@ -58,6 +58,9 @@
   {{ if in .Params.tags "alerts" }}
     {{ partial "alerts-css.html" . }}
   {{ end }}
+
+  {{ block "page_css" . }}{{ end }}
+
   </head>
 
   {{- $environment := hugo.Environment | compare.Default "production" -}}
@@ -68,5 +71,7 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ block "footer" . }}{{ partials.IncludeCached "site-footer.html" . }}{{ end }}
+
+    {{ block "page_js" . }}{{ end }}
   </body>
 </html>
