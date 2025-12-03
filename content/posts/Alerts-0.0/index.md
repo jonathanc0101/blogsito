@@ -10,6 +10,9 @@ tags = ["alerts"]
 <div class="alert alert--sweet">
 <div class="alert__icon">?</div>
 <p class="alert__text">¿Te mentís?</p>
+
+<!--more-->
+
 <div class="alert__actions">
     <button class="alert__btn">no</button>
     <button class="alert__btn alert__btn--secondary">ni a palos</button>
