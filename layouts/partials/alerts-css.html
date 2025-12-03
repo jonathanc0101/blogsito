@@ -1,0 +1,101 @@
+<style>
+    /* -----------------------------
+   BASE
+------------------------------ */
+
+    .alert {
+        padding: 1.8rem;
+        border-radius: 0.85rem;
+        max-width: 22rem;
+        margin: 2rem auto;
+        text-align: center;
+
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+        /* SweetAlert2 vibes */
+        background: #1f2937;
+        /* gris azulado oscuro */
+        color: #e5e7eb;
+        /* gris claro */
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* -----------------------------
+   ICONO
+------------------------------ */
+
+    .alert__icon {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 9999px;
+        border: 2px solid rgba(255, 255, 255, 0.22);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        margin: 0 auto 0.9rem auto;
+        color: #f9fafb;
+    }
+
+    /* -----------------------------
+   TEXTO
+------------------------------ */
+
+    .alert__text {
+        font-size: 1.15rem;
+        margin-bottom: 1.4rem;
+        line-height: 1.4;
+    }
+
+    /* -----------------------------
+   ACCIONES (BOTONES)
+------------------------------ */
+
+    .alert__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    /* Botón base */
+    .alert__btn {
+        padding: 0.55rem 1rem;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+
+        background: #3b82f6;
+        /* azul vivo */
+        color: white;
+
+        transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    /* Hover */
+    .alert__btn:hover {
+        background: #2563eb;
+        /* azul más profundo */
+        transform: translateY(-1px);
+    }
+
+    /* Botón secundario */
+    .alert__btn--secondary {
+        background: #111827;
+        /* gris muy oscuro */
+        color: #e5e7eb;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .alert__btn--secondary:hover {
+        background: #1e293b;
+        /* gris más claro */
+    }
+</style>
