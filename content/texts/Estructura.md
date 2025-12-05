@@ -2,6 +2,7 @@
 date = '2025-12-05T07:33:05-03:00'
 draft = false
 title = 'Estructura'
+tags = ["Lacán"]
 +++
 
 <!--more-->
